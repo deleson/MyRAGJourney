@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # 1. 数据库服务 (PostgreSQL + pgvector)
+  db:
+    image: pgvector/pgvector:pg16  # 官方预装了插件的镜像
+    container_name: nexus_pgvector
+    restart: always
+    environment:
+      POSTGRES_DB: nexus_kb_db
+      POSTGRES_USER: nexus_user
+      POSTGRES_PASSWORD: nexus_password
+    ports:
+      - "5432:5432"  # 暴露端口，方便 Django 连接
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  # 2. 消息队列 (Redis) - 给 Celery 用
+  redis:
+    image: redis:alpine
+    container_name: nexus_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  pg_data:  # 数据持久化卷，重启 Docker 数据不丢

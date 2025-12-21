@@ -1,0 +1,63 @@
+# --- Python 通用 ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- 虚拟环境 (绝对不能传) ---
+venv/
+env/
+ENV/
+.env_win/
+
+# --- 环境变量与密钥 (致命危险，绝对不能传) ---
+.env
+.env.local
+config.py # 如果你曾在这里硬编码过密码
+
+# --- Django ---
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# --- Streamlit ---
+.streamlit/secrets.toml
+
+# --- IDE 配置 (不需要传) ---
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- 操作系统 ---
+.DS_Store
+Thumbs.db
+
+# --- Nexus 项目特定 ---
+# 1. 本地大模型 (太大，传不上去，让用户自己运行 download_model.py)
+nexus_kb_backend/local_models/
+local_models/
+
+# 2. 用户上传的文件和生成的图表 (隐私数据)
+nexus_kb_backend/media/
+nexus_kb_backend/documents/
