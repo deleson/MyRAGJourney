@@ -119,7 +119,7 @@ graph TD
 
 ```bash
 # 克隆项目
-git clone https://github.com/yourusername/nexus-ai.git
+git clone https://github.com/deleson/MyRAGJourney.git
 cd nexus-ai
 ```
 
